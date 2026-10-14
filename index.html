@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Titas — UCL PEARL Ambassador Application</title>
+<meta name="description" content="Why I should be picked as a UCL PEARL Ambassador — Titas, Year 12.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!--
+  HOW TO ADD YOUR PHOTOS:
+  Put image files in the SAME FOLDER as this index.html file, named:
+    titas.png         (your portrait, top right)
+    second.png        (photo in the Background section)
+    third.png         (photo next to the motivational quote)
+  They will appear automatically — the dashed placeholders disappear.
+
+  The CSS is inside the <style> tag below (same file, nothing else to download).
+  All editable text is further down in <body> — press Ctrl+F and search for
+  any sentence you can see on the page.
+-->
+<style>
+  :root {
+    --bg: #fbfbfd;
+    --panel: #ffffff;
+    --panel-2: #f4f3f8;
+    --ink: #17181c;
+    --body: #565b66;
+    --muted: #787e8a;
+    --line: #e6e4ee;
+    --accent: #500778;
+    --accent-2: #0f8a7e;
+    --shadow: 0 1px 2px rgba(16, 12, 28, 0.05), 0 14px 36px rgba(16, 12, 28, 0.07);
+    --code-bg: #14161c;
+    --code-bar: #191d26;
+    --code-ink: #dbe1ea;
+    --code-dim: #7d8694;
+    --aurora-1: rgba(123, 44, 191, 0.10);
+    --aurora-2: rgba(90, 40, 160, 0.07);
+  }
+  html[data-theme="dark"] {
+    --bg: #0e1015;
+    --panel: #15181f;
+    --panel-2: #191d26;
+    --ink: #edeff3;
+    --body: #b6bdc9;
+    --muted: #9aa2ae;
+    --line: #262b36;
+    --accent: #c9a5f5;
+    --accent-2: #34d3bd;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 18px 44px rgba(0, 0, 0, 0.45);
+    --aurora-1: rgba(150, 80, 255, 0.15);
+    --aurora-2: rgba(110, 60, 220, 0.11);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: "Inter", "Segoe UI", -apple-system, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  ::selection { background: rgba(123, 44, 191, 0.22); }
+
+  /* ---------- faint purple aurora at the bottom ---------- */
+  .aurora {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    height: 360px;
+    pointer-events: none;
+    z-index: -1;
+    transition: filter 0.35s ease-out;
+    background:
+      radial-gradient(55% 130% at 0% 115%, var(--aurora-1), transparent 68%),
+      radial-gradient(45% 120% at 100% 120%, var(--aurora-2), transparent 65%);
+  }
+
+  .wrap { max-width: 1060px; margin: 0 auto; padding: 64px 28px 48px; }
+
+  /* ================= header ================= */
+  .head {
+    display: grid;
+    grid-template-columns: 1fr 310px;
+    gap: 56px;
+    align-items: start;
+  }
+  .kicker {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-size: 12px; font-weight: 700; letter-spacing: 2.4px;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 22px;
+  }
+  .kicker::before {
+    content: ""; width: 24px; height: 2px; border-radius: 2px;
+    background: var(--accent);
+  }
+  h1 {
+    font-size: clamp(42px, 6vw, 58px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.04;
+    margin-bottom: 16px;
+  }
+  .role { font-size: 18px; font-weight: 500; color: var(--body); }
+  .contact-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13.5px; font-weight: 600; color: var(--body);
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 999px; padding: 8px 16px;
+    text-decoration: none;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .chip:hover { border-color: var(--accent); color: var(--accent); }
+  .chip svg { width: 14px; height: 14px; }
+  .intro { margin-top: 28px; font-size: 17px; color: var(--body); max-width: 34em; }
+  .intro strong { color: var(--ink); font-weight: 600; }
+
+  .portrait { margin: 0; }
+  .portrait .slot { aspect-ratio: 4 / 5; }
+
+  /* ================= sections ================= */
+  section {
+    display: grid;
+    grid-template-columns: 210px 1fr;
+    gap: 48px;
+    padding: 52px 0;
+    border-top: 1px solid var(--line);
+    margin-top: 52px;
+  }
+  .rail { position: sticky; top: 32px; align-self: start; }
+  .rail .num {
+    display: block; font-size: 12px; font-weight: 700;
+    letter-spacing: 2.4px; color: var(--accent); margin-bottom: 10px;
+  }
+  .rail h2 { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.3; }
+
+  .content p { color: var(--body); max-width: 44em; }
+  .content p + p { margin-top: 14px; }
+  .content strong { color: var(--ink); font-weight: 600; }
+
+  .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .meta span {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 12px; color: var(--body);
+    background: var(--panel-2); border: 1px solid var(--line);
+    border-radius: 7px; padding: 4px 11px;
+  }
+
+  ul.clean, ol.tl, ul.check { list-style: none; padding: 0; }
+  ul.clean { margin-top: 16px; }
+  ul.clean li {
+    position: relative; padding-left: 26px; margin: 10px 0; color: var(--body);
+  }
+  ul.clean li::before {
+    content: ""; position: absolute; left: 6px; top: 11px;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent); opacity: 0.75;
+  }
+  ul.check li {
+    position: relative; padding-left: 32px; margin: 12px 0; color: var(--body);
+  }
+  ul.check li::before {
+    content: "\2713"; position: absolute; left: 2px; top: 1px;
+    color: var(--accent-2); font-weight: 800; font-size: 15px;
+  }
+  ul.check strong, ul.clean strong, ol.tl strong { color: var(--ink); font-weight: 600; }
+
+  /* timeline */
+  ol.tl { position: relative; padding-left: 26px; margin-top: 8px; }
+  ol.tl::before {
+    content: ""; position: absolute; left: 5px; top: 8px; bottom: 8px;
+    width: 2px; background: var(--line);
+  }
+  ol.tl li { position: relative; margin: 16px 0; color: var(--body); }
+  ol.tl li::before {
+    content: ""; position: absolute; left: -26px; top: 8px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--bg);
+  }
+
+  /* skills grid + cards */
+  .tiles {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 12px; margin-top: 4px;
+  }
+  .tile {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 14px; padding: 16px 18px;
+    transition: border-color 0.2s ease, transform 0.2s ease, filter 0.25s ease;
+  }
+  .tile:hover { border-color: var(--accent); transform: translateY(-2px); filter: brightness(1.05); }
+  .tile b { display: block; font-size: 15px; font-weight: 600; margin-bottom: 3px; }
+  .tile span { font-size: 13.5px; color: var(--muted); line-height: 1.55; }
+  .tile .n {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 26px; height: 26px; border-radius: 8px; margin-bottom: 10px;
+    font-size: 13px; font-weight: 700; color: var(--accent);
+    background: var(--panel-2); border: 1px solid var(--line);
+  }
+  .tile-wide { grid-column: 1 / -1; }
+
+  /* ================= photo placeholders ================= */
+  figure { margin: 24px 0 0; }
+  .slot {
+    position: relative;
+    overflow: hidden;
+    border: 1px dashed var(--line);
+    border-radius: 14px;
+    background: var(--panel-2);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 12px; text-align: center; color: var(--muted);
+    font-size: 13.5px; padding: 18px; min-height: 180px;
+    transition: transform 0.22s ease, filter 0.25s ease;
+  }
+  .slot svg { width: 26px; height: 26px; opacity: 0.5; }
+  .slot .fname {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 12px; color: var(--accent);
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 6px; padding: 2px 9px;
+  }
+  .slot img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    border-radius: 13px;
+    transition: filter 0.25s ease;
+  }
+  .slot.has-img { border: none; padding: 0; background: none; min-height: 0; }
+  .slot.has-img img { border-radius: 14px; }
+  figcaption { font-size: 13px; color: var(--muted); margin-top: 10px; text-align: center; }
+
+  .ratio-169 { aspect-ratio: 16 / 9; }
+  .ratio-43 { aspect-ratio: 4 / 3; }
+  .ratio-11 { aspect-ratio: 1 / 1; }
+
+  /* small portrait box for second.png - matches the photo, so nothing is cropped */
+  .second-figure { max-width: 340px; }
+  .second-figure .slot { aspect-ratio: 385 / 508; }
+
+  .shot {
+    border: 1px solid var(--line); border-radius: 16px; padding: 10px;
+    background: var(--panel); box-shadow: var(--shadow);
+  }
+  .shot .slot { border-radius: 10px; }
+
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
+  .gallery figure { margin: 0; }
+  .gallery .slot { min-height: 150px; }
+
+  /* ================= code ================= */
+  .code {
+    margin-top: 28px; border-radius: 14px; overflow: hidden;
+    border: 1px solid var(--line); background: var(--code-bg);
+    box-shadow: var(--shadow);
+  }
+  .code-bar {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 16px; background: var(--code-bar);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .code-bar i {
+    width: 10px; height: 10px; border-radius: 50%; background: #3a4150;
+  }
+  .code-bar code {
+    margin-left: 8px; font-family: Consolas, "Courier New", monospace;
+    font-size: 12.5px; color: var(--code-dim);
+  }
+  .code pre {
+    padding: 20px 22px; overflow-x: auto;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 13px; line-height: 1.65; color: var(--code-ink);
+  }
+  .code .cm { color: var(--code-dim); }
+  .code .kw { color: #c9a5f5; }
+  .code .fn { color: #82aaff; }
+
+  /* ================= closing ================= */
+  .closing {
+    background: var(--panel-2);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--accent);
+    border-radius: 4px 16px 16px 4px;
+    padding: 30px 34px;
+    margin-top: 6px;
+  }
+  .closing p { font-size: 17.5px; color: var(--ink); max-width: 44em; }
+  .closing p + p { margin-top: 14px; color: var(--body); font-size: 16px; }
+  .closing .sign {
+    margin-top: 22px; font-weight: 700; font-size: 17px; color: var(--accent);
+  }
+
+  /* ================= footer ================= */
+  footer {
+    border-top: 1px solid var(--line);
+    margin-top: 64px; padding-top: 40px;
+    display: flex; flex-direction: column; align-items: center; gap: 20px;
+    text-align: center;
+  }
+  .email-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 14.5px; font-weight: 600; text-decoration: none;
+    color: #fff; background: var(--accent);
+    border-radius: 12px; padding: 12px 24px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  html[data-theme="dark"] .email-btn { color: #201532; }
+  .email-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+  .email-btn svg { width: 16px; height: 16px; }
+
+  .toggle {
+    display: inline-flex; gap: 4px; padding: 4px;
+    background: var(--panel-2); border: 1px solid var(--line);
+    border-radius: 999px;
+  }
+  .toggle button {
+    font: inherit; font-size: 13px; font-weight: 600;
+    color: var(--muted); background: transparent; border: none;
+    border-radius: 999px; padding: 7px 20px; cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .toggle button:hover { color: var(--ink); }
+  .toggle button.active { background: var(--accent); color: #fff; }
+  html[data-theme="dark"] .toggle button.active { color: #201532; }
+
+  .foot-note { font-size: 12.5px; color: var(--muted); }
+
+  /* ================= fixed top-right bar ================= */
+  .topbar {
+    position: fixed; top: 14px; right: 16px; z-index: 300;
+    display: flex; align-items: center; gap: 12px;
+    padding: 7px 14px; border-radius: 999px;
+    background: var(--bg);
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s ease;
+  }
+  .top-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12.5px; font-weight: 600;
+    color: var(--muted); text-decoration: none;
+    opacity: 0.65;
+    transition: opacity 0.2s ease, color 0.2s ease;
+  }
+  .top-link:hover { opacity: 1; color: var(--accent); }
+  .top-link svg { width: 13px; height: 13px; }
+  .top-sep { width: 1px; height: 18px; background: var(--line); }
+
+  /* sliding light / dark switch */
+  .switch { position: relative; display: inline-flex; cursor: pointer; }
+  .switch input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+  .switch .track {
+    width: 46px; height: 24px; border-radius: 999px; position: relative;
+    background: var(--panel-2); border: 1px solid var(--line);
+    transition: background 0.25s ease;
+  }
+  .switch .track svg {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 11px; height: 11px; color: var(--muted);
+  }
+  .switch .track .ic-sun { left: 5px; }
+  .switch .track .ic-moon { right: 4px; }
+  .switch .knob {
+    position: absolute; top: 2px; left: 2px;
+    width: 18px; height: 18px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: transform 0.25s ease;
+  }
+  .switch input:checked + .track .knob { transform: translateX(22px); }
+
+  @media (max-width: 760px) {
+    .topbar { top: 10px; right: 10px; gap: 8px; padding: 6px 10px; }
+    .topbar .top-phone { display: none; }
+    .topbar .top-sep { display: none; }
+    .top-link { font-size: 11px; }
+    .top-email-text { display: none; }
+  }
+
+  /* ================= motivation quote ================= */
+  section.band { grid-template-columns: 1fr; gap: 0; }
+  .quote-band {
+    display: grid; grid-template-columns: 1.15fr 1fr; gap: 44px; align-items: center;
+  }
+  .quote-photo { margin: 0; }
+  .motivation::before {
+    content: "\201C"; display: block;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 64px; line-height: 0.55; color: var(--accent);
+    margin-bottom: 20px; opacity: 0.85;
+  }
+  .motivation p {
+    font-size: clamp(22px, 3vw, 31px);
+    line-height: 1.35; font-weight: 700; letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .motivation cite {
+    display: block; margin-top: 16px;
+    color: var(--accent); font-style: normal; font-weight: 600; font-size: 15px;
+  }
+  @media (max-width: 760px) {
+    .quote-band { grid-template-columns: 1fr; gap: 28px; }
+  }
+
+  /* ================= hover polish ================= */
+  .content p, .intro, ul.clean li, ul.check li, ol.tl li, .closing, .motivation {
+    transition: transform 0.22s ease, filter 0.25s ease;
+  }
+  .content p:hover, .intro:hover, ul.clean li:hover, ul.check li:hover,
+  ol.tl li:hover, .closing:hover, .motivation:hover {
+    transform: scale(1.012);
+    filter: brightness(1.07);
+  }
+  .slot:hover { transform: scale(1.012); filter: brightness(1.04); }
+  .slot.has-img:hover img { filter: brightness(1.08); }
+
+  /* ================= responsive ================= */
+  @media (max-width: 860px) {
+    .head { grid-template-columns: 1fr; gap: 36px; }
+    .portrait { max-width: 270px; }
+    section { grid-template-columns: 1fr; gap: 22px; padding: 40px 0; margin-top: 40px; }
+    .rail { position: static; }
+    .gallery { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 640px) {
+    .wrap { padding: 72px 18px 40px; }
+    .kicker { letter-spacing: 1.8px; }
+    h1 { font-size: clamp(32px, 9vw, 42px); letter-spacing: -0.02em; }
+    .role { font-size: 16px; }
+    .intro { font-size: 15.5px; }
+    .rail h2 { font-size: 17px; }
+    .content p, ul.clean li, ul.check li, ol.tl li { font-size: 15.5px; }
+    section { padding: 32px 0; margin-top: 32px; }
+    .closing { padding: 22px 20px; border-radius: 4px 12px 12px 4px; }
+    .closing p { font-size: 16px; }
+    .motivation p { font-size: 21px; }
+    .motivation::before { font-size: 46px; margin-bottom: 14px; }
+    .slot { min-height: 140px; }
+    .aurora { height: 260px; }
+    .second-figure { max-width: 250px; }
+    .code pre { font-size: 12px; padding: 16px 14px; }
+    .email-btn { font-size: 13px; padding: 11px 18px; }
+  }
+
+  /* ================= reveal ================= */
+  .js .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .js .reveal.visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .js .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="aurora" aria-hidden="true"></div>
+
+<div class="topbar">
+  <a class="top-link" href="mailto:titasjasiul@gmail.com" title="titasjasiul@gmail.com">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>
+    </svg>
+    <span class="top-email-text">titasjasiul@gmail.com</span>
+  </a>
+  <span class="top-sep"></span>
+  <a class="top-link top-phone" href="tel:+447483873137">+44 7483873137</a>
+  <span class="top-sep"></span>
+  <label class="switch" title="Light / dark mode">
+    <input type="checkbox" id="theme-switch" aria-label="Dark mode">
+    <span class="track">
+      <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+      </svg>
+      <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+        <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+      </svg>
+      <span class="knob"></span>
+    </span>
+  </label>
+</div>
+
+<div class="wrap">
+
+  <header class="head">
+    <div>
+      <p class="kicker">UCL PEARL Ambassador &middot; Application</p>
+      <h1>Titas Jasiulionis</h1>
+      <p class="role">Year 12 student &middot; engineering, electronics &amp; programming</p>
+      <div class="contact-row">
+        <a class="chip" href="mailto:titasjasiul@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>
+          </svg>
+          titasjasiul@gmail.com
+        </a>
+        <a class="chip" href="tel:+447483873137">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          +44 7483873137
+        </a>
+      </div>
+      <p class="intro">
+       Hi, my name is Titas. I'm a Year 12 student with a passion for engineering, electronics and programming. When I was younger, I used to always take things apart, so much to the point where I broke my tv because I took it apart. This passion has remained in me , however much more civilised. Now, I belive I can use this opportunity to learn more about the field of engineering and technology, and share my passion with other students as well as viewing my future opportunities in the field of engineering and technology.
+      </p>
+    </div>
+    <figure class="portrait">
+      <div class="slot" data-img="titas.png">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7l1.5-2h5L16 7"/>
+        </svg>
+        <span class="fname">titas.png</span>
+      </div>
+    </figure>
+  </header>
+
+  <section id="statement" class="reveal">
+    <div class="rail"><span class="num">01</span><h2>Why PEARL</h2></div>
+    <div class="content">
+      <p>
+        I want to become a PEARL Ambassador because it's a real chance to learn what
+        researching is actually like, I get to meet people who get excited about the
+        same things I do, and contribute into helping other students discover
+        opportunities they might never have considered.
+      </p>
+      <p>
+        PEARL studies how people and environments interact. That's the overlap of
+        hardware, software and real people that I find most interesting,
+        not just in theory, but in practice. I want to see how it works, and how I can contribute myself into a key part of the future.
+      </p>
+    </div>
+  </section>
+
+  <section id="project" class="reveal">
+    <div class="rail"><span class="num">02</span><h2>My project — real-time human tracking</h2></div>
+    <div class="content">
+      <div class="meta">
+        <span>Python</span><span>MediaPipe</span><span>OpenCV</span><span>Webcam</span>
+      </div>
+      <p>
+        When I went on the PEARL research trip, I saw multiple types of sensors and lights that fascinated me. However, I didnt hear anything of actual human tracking in a 3d vector space.
+        .Therefore, I built a system using python and mediapipe that watches through my webcam and draws a skeleton
+        tracking system to track my movements. It started as a way to learn, and turned into
+        one of the most interesting things I have made in my field of programming.
+      </p>
+      <ul class="clean">
+        <li>Real-time pose detection using MediaPipe's pose estimator and a standard webcam</li>
+        <li>Live skeleton overlay and video pipeline built with opencv</li>
+        <li>Debugged and tuned it myself  plenty of trial and error (trust me), and an unthavomable amount of patience</li>
+      </ul>
+
+      <div class="code">
+        <div class="code-bar">
+          <i></i><i></i><i></i>
+          <code>skeleton_tracker.py</code>
+        </div>
+        <pre><span class="cm"># the core of my tracker  a slice of the real thing</span>
+<span class="kw">import</span> cv2
+<span class="kw">import</span> mediapipe <span class="kw">as</span> mp
+<span class="kw">from</span> mediapipe.tasks.python <span class="kw">import</span> vision
+
+landmarker = vision.PoseLandmarker.<span class="fn">create_from_options</span>(options)
+
+cap = cv2.<span class="fn">VideoCapture</span>(0)          <span class="cm"># the webcam</span>
+<span class="kw">while</span> True:
+    ok, frame = cap.<span class="fn">read</span>()
+    rgb = cv2.<span class="fn">cvtColor</span>(frame, cv2.COLOR_BGR2RGB)
+    result = landmarker.<span class="fn">detect_for_video</span>(mp.<span class="fn">Image</span>(data=rgb, ...), ts)
+    <span class="fn">draw_skeleton</span>(frame, result.pose_landmarks)   <span class="cm"># my own drawing code</span></pre>
+      </div>
+    </div>
+  </section>
+
+  <section id="started" class="reveal">
+    <div class="rail"><span class="num">03</span><h2>Background — how it started</h2></div>
+    <div class="content">
+      <ol class="tl">
+        <li><strong>The ceiling lights.</strong> When you displayed the lights demo in the pearl facility ,
+          I was kept wondering how they were all connected, how they were wired, what made them
+          work. Most people move on. I looked it up to find they were LED'S with 11 narrow wavelength groups, allowing you to display a vastly larger amount of colours.</li>
+        <li><strong>The long rabbit hole.</strong> One question turned into a hundred.
+          Wiring, circuits, code. the more I learned, the more I wanted to be apart of this instutution and to contribute my ideas.</li>
+        <li><strong>Going home and building it</strong> when I came home , I shot up a prototype, allowing me to think of the ideas I would be able to contribute.</li>
+      </ol>
+
+      <figure class="second-figure">
+        <div class="slot" data-img="second.png">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7l1.5-2h5L16 7"/>
+          </svg>
+          <span class="fname">second.png</span>
+        </div>
+        <figcaption>I was always second in life, now is my chance to be the best possible version of myself.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="skills" class="reveal">
+    <div class="rail"><span class="num">04</span><h2>Skills &amp; interests</h2></div>
+    <div class="content">
+      <div class="tiles">
+        <div class="tile"><b>Programming</b><span>Python, self-taught through personal projects</span></div>
+        <div class="tile"><b>Computer vision</b><span>MediaPipe, OpenCV — built and debugged a real pipeline</span></div>
+        <div class="tile"><b>Electronics</b><span>Circuits, wiring and hands-on builds</span></div>
+        <div class="tile"><b>Problem solving</b><span>Persistent debugging, learning from failure</span></div>
+        <div class="tile"><b>Independent learning</b><span>Exploring beyond the curriculum</span></div>
+        <div class="tile"><b>Communication</b><span>Teamwork and leadership — things I want to keep building</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why" class="reveal">
+    <div class="rail"><span class="num">05</span><h2>Why I would be a better ambassador than others</h2></div>
+    <div class="content">
+      <div class="tiles">
+        <div class="tile"><span class="n">1</span><b>Curious by default</b><span>I'm naturally curious and always looking to understand how things work, even when others give up and go home.</span></div>
+        <div class="tile"><span class="n">2</span><b>Ready to share it</b><span>I love sharing a piece of mind all the time, it allows me to not only give others a glimpse of what I'm thinking but also allows for others to share their thoughts and opinions that could furthermore improve the points we make as a collective.</span></div>
+        <div class="tile"><span class="n">3</span><b>Comfortable beyond the syllabus</b><span>Some of the best things I've learned weren't on any curriculum. I have due to this need of need of knowledge explored the world of programming where I have learnt c++,python, html, css and javascript. Which I also used to make this website</span></div>
+        <div class="tile"><span class="n">4</span><b>Up for the team side of things</b><span>I'm very enthusiastic about working in a team and sharing what I have to share which can help others peoples understand and leading when it's my turn.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gain" class="reveal">
+    <div class="rail"><span class="num">06</span><h2>What I hope to gain</h2></div>
+    <div class="content">
+      <ul class="check">
+        <li><strong>A proper look at university life and research</strong> — especially
+          the engineering and technology side, from people actually doing it not for the sake of it but for the passion.</li>
+        <li><strong>Connections with people who share my interests</strong>, and their
+          honest take on the different paths I could take as well as making future connections that I can build upon.</li>
+        <li><strong>Skills that only come from doing</strong>  communication, teamwork
+          and leadership and the confidence that comes from using them for real in a real-world setting.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="motivation" class="band reveal">
+    <div class="quote-band">
+      <figure class="quote-photo">
+        <div class="slot ratio-11" data-img="third.png">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7l1.5-2h5L16 7"/>
+          </svg>
+          <span class="fname">third.png</span>
+        </div>
+      </figure>
+      <blockquote class="motivation">
+        <p>You can be anything if you move far enough.</p>
+        <cite>— The pawn</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section id="closing" class="reveal">
+    <div class="rail"><span class="num">07</span><h2>In closing</h2></div>
+    <div class="content">
+      <div class="closing">
+        <p>
+          Becoming a PEARL Ambassador is my chance to turn a private obsession into
+          something bigger: sharing my passion for technology, learning from people
+          who've been there, and helping other students find their own spark.
+        </p>
+        <p>I'd make the most of every part of it. Thank you for considering my application </p>
+        <p class="sign">— Titas</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a class="email-btn" href="mailto:titasjasiul@gmail.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>
+      </svg>
+      titasjasiul@gmail.com
+    </a>
+    <div class="toggle" role="group" aria-label="Colour theme">
+      <button id="btn-light" type="button">Light</button>
+      <button id="btn-dark" type="button">Dark</button>
+    </div>
+    <p class="foot-note">Titas &middot; Year 12 &middot; UCL PEARL Ambassador application</p>
+  </footer>
+
+</div>
+
+<script>
+  /* ---------- light / dark theme ---------- */
+  var lightBtn = document.getElementById('btn-light');
+  var darkBtn = document.getElementById('btn-dark');
+  var themeSwitch = document.getElementById('theme-switch');
+
+  function applyTheme(theme, save) {
+    document.documentElement.setAttribute('data-theme', theme);
+    lightBtn.classList.toggle('active', theme === 'light');
+    darkBtn.classList.toggle('active', theme === 'dark');
+    if (themeSwitch) themeSwitch.checked = (theme === 'dark');
+    if (save) { try { localStorage.setItem('theme', theme); } catch (e) {} }
+  }
+
+  applyTheme('dark', false); /* always start in dark mode */
+
+  lightBtn.addEventListener('click', function () { applyTheme('light', true); });
+  darkBtn.addEventListener('click', function () { applyTheme('dark', true); });
+  if (themeSwitch) {
+    themeSwitch.addEventListener('change', function () {
+      applyTheme(themeSwitch.checked ? 'dark' : 'light', true);
+    });
+  }
+
+  /* ---------- swap dashed placeholders for real photos ---------- */
+  document.querySelectorAll('.slot').forEach(function (slot) {
+    var src = slot.getAttribute('data-img');
+    if (!src) return;
+    var img = new Image();
+    img.onload = function () {
+      slot.innerHTML = '';
+      slot.appendChild(img);
+      slot.classList.add('has-img');
+    };
+    img.src = src;
+  });
+
+  /* ---------- gentle reveal on scroll ---------- */
+  document.documentElement.classList.add('js');
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
+
+  /* ---------- aurora hue shifts purple -> blue -> green as you scroll ---------- */
+  var aurora = document.querySelector('.aurora');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function updateAurora() {
+    if (!aurora || reduceMotion) return;
+    var doc = document.documentElement;
+    var max = doc.scrollHeight - doc.clientHeight;
+    var p = max > 0 ? doc.scrollTop / max : 0;
+    var shift = -70 + 70 * Math.cos(p * Math.PI * 4);
+    aurora.style.filter = 'hue-rotate(' + shift.toFixed(1) + 'deg)';
+  }
+  window.addEventListener('scroll', updateAurora, { passive: true });
+  updateAurora();
+</script>
+
+</body>
+</html>
